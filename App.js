@@ -1,13 +1,12 @@
 import "./App.css";
+import { planets } from "./Planets";
 
 function App() {
-  const names = ["Najad", "Hanad", "Ahmed"];
-
   return (
     <div className="App">
-      {names.map((name, key) => {
-        return <h1 key={key}>{name}</h1>;
-      })}
+      {planets.map(
+        (planet, key) => planet.isGasPlanet && <h1 key={key}>{planet.name}</h1>
+      )}
     </div>
   );
 }
