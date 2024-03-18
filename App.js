@@ -1,14 +1,26 @@
 import "./App.css";
-import { planets } from "./Planets";
+import { useState } from "react";
 
 function App() {
+  // const [showText, setShowText] = useState(true);
+  const [textColor, setTextColor] = useState("black");
+
+  //  const handleInputChange = (event) => {
+  //   setInputValue(event.target.value);
+  // };
+
   return (
     <div className="App">
-      {planets.map(
-        (planet, key) => planet.isGasPlanet && <h1 key={key}>{planet.name}</h1>
-      )}
+      <button
+        onClick={() => {
+          setTextColor(textColor === "black" ? "red" : "black");
+          // => ( setShowText(!showText);
+        }}>
+        {" "}
+        Show/Hide{" "}
+      </button>
+      <h1 style={{ color: textColor }}> HI, MY NAME IS AHMED</h1>
     </div>
   );
 }
-
 export default App;
