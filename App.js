@@ -2,18 +2,17 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let [age, setAge] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
-  const increaseAge = () => {
-    setAge(age + 1);
+  const handleInputValue = (event) => {
+    setInputValue(event.target.value);
   };
 
   return (
     <div className="App">
-      {age}
-      <button onClick={increaseAge}> Increase Age! </button>
+      <input type="text" onChange={handleInputValue} />
+      {inputValue}
     </div>
   );
 }
-
 export default App;
