@@ -1,34 +1,24 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Menu } from "./pages/Menu";
+import { Contact } from "./pages/Contact";
+import { Error } from "./pages/Error";
+import { Navbar } from "./pages/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <User
-        firstName="Ahmed"
-        surName="Abdulrahman"
-        email="ahmedabdi03@hotmail.com"
-        age={20}
-      />
-      <User
-        firstName="Hanad"
-        surName="Abdulrahman"
-        email="hanadabdi236@hotmail.com"
-        age={24}
-      />
-      <User />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
-
-const User = (props) => {
-  return (
-    <div>
-      <h1>{props.firstName}</h1>
-      <h1>{props.surName}</h1>
-      <h2>{props.email}</h2>
-      <h3>{props.age}</h3>
-    </div>
-  );
-};
-
 export default App;
